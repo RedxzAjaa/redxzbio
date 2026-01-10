@@ -1,0 +1,321 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Redxz Social Media</title>
+
+<!-- ADDRESS BAR COLOR -->
+<meta name="theme-color" content="#00ffff">
+
+<!-- FAVICON -->
+<link rel="icon" type="image/svg+xml"
+href="data:image/svg+xml,
+<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'>
+  <rect width='100' height='100' fill='black'/>
+  <text x='50%' y='68%' text-anchor='middle'
+        font-size='72'
+        font-family='Arial Black, sans-serif'
+        fill='%2300ffff'>R</text>
+  <text x='48%' y='66%' text-anchor='middle'
+        font-size='72'
+        font-family='Arial Black, sans-serif'
+        fill='red' opacity='0.6'>R</text>
+  <text x='52%' y='70%' text-anchor='middle'
+        font-size='72'
+        font-family='Arial Black, sans-serif'
+        fill='%2300ff88' opacity='0.6'>R</text>
+</svg>">
+
+<style>
+/* ==== TOP RGB LOADER ==== */
+#top-loader {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 3px;
+  width: 0%;
+  background: linear-gradient(90deg, red, orange, yellow, lime, cyan, blue, magenta, red);
+  background-size: 400% 100%;
+  animation: rgbFlow 2s linear infinite;
+  box-shadow: 0 0 8px rgba(0,255,255,.8);
+  z-index: 9999999;
+  transition: width .35s ease, opacity .4s ease;
+}
+@keyframes rgbFlow {
+  from { background-position: 0% }
+  to { background-position: 400% }
+}
+/* ======================== */
+
+body{
+  margin:0;
+  min-height:100vh;
+  background:radial-gradient(circle at top,#0a0f2c,#02020a);
+  font-family:Arial,sans-serif;
+  color:white;
+  padding:20px;
+}
+
+/* AVATAR */
+.avatar{
+  width:140px;
+  aspect-ratio:1/1;
+  border-radius:50%;
+  border:3px solid cyan;
+  box-shadow:0 0 25px cyan;
+  animation:pulse 2.5s infinite;
+  object-fit:cover;
+}
+
+/* CTA */
+.join-cta{
+  margin-top:4px;
+  font-size:9.5px;
+  letter-spacing:2px;
+  color:#88ffff;
+  opacity:.85;
+  cursor:pointer;
+  text-shadow:0 0 6px cyan;
+  animation:glitch 3s infinite;
+}
+
+/* POPUP */
+.popup-notif{
+  position:fixed;
+  top:-120px;
+  left:50%;
+  transform:translateX(-50%);
+  background:rgba(0,0,0,.85);
+  color:#00ffcc;
+  padding:14px 22px;
+  border-radius:14px;
+  font-size:14px;
+  letter-spacing:1.5px;
+  box-shadow:0 0 25px rgba(0,255,204,.6);
+  z-index:999999;
+  animation:popupIn .9s cubic-bezier(.34,1.56,.64,1) forwards;
+}
+.popup-hide{animation:popupOut .7s cubic-bezier(.68,-.6,.32,1.6) forwards;}
+@keyframes popupIn{to{top:18px}}
+@keyframes popupOut{to{top:-140px}}
+
+/* DONATE */
+.donate-wrapper{
+  position:fixed;
+  top:14px;
+  left:14px;
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  cursor:pointer;
+  z-index:1000000;
+  transition:transform .35s ease, opacity .35s ease;
+}
+.donate-wrapper.hide{
+  transform:translateY(-120%);
+  opacity:0;
+}
+.donate-icon{
+  width:50px;height:50px;
+  border-radius:50%;
+  border:2px solid #00ff88;
+  background:rgba(0,255,136,.15);
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  box-shadow:0 0 20px rgba(0,255,136,.8);
+}
+.donate-label{
+  margin-top:4px;
+  font-size:11px;
+  letter-spacing:1.5px;
+  color:#00ff88;
+}
+
+/* CENTER */
+.wrapper{
+  min-height:100vh;
+  max-width:420px;
+  margin:auto;
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  justify-content:center;
+  text-align:center;
+}
+
+/* TEXT */
+.title{
+  margin:18px 0 6px;
+  font-size:24px;
+  letter-spacing:2px;
+  text-shadow:0 0 8px cyan,0 0 16px cyan;
+  animation:glitch 3s infinite;
+}
+.subtitle{
+  font-size:13px;
+  color:rgba(200,255,255,.75);
+}
+
+/* SOSMED */
+.social-container{
+  display:flex;
+  flex-direction:column;
+  gap:16px;
+  width:100%;
+  margin-top:14px;
+}
+.social-btn{
+  display:flex;
+  align-items:center;
+  gap:15px;
+  padding:16px;
+  border-radius:12px;
+  border:none;
+  font-size:18px;
+  font-weight:bold;
+  color:white;
+  cursor:pointer;
+  box-shadow:0 0 20px rgba(0,255,255,.35);
+}
+.social-btn img{width:42px;height:42px}
+
+.tiktok{background:linear-gradient(90deg,#00f2ea,#ff0050)}
+.instagram{background:linear-gradient(90deg,#f09433,#dc2743,#bc1888)}
+.whatsapp{background:linear-gradient(90deg,#00ff9d,#00c46a)}
+.wa-channel{background:linear-gradient(90deg,#00ffc3,#00a98f)}
+.discord{background:linear-gradient(90deg,#5865f2,#8ea1ff)}
+
+.clock-banner{padding:14px;border-radius:14px;background:linear-gradient(135deg,rgba(0,255,255,.15),rgba(0,0,0,.8));border:1px solid rgba(0,255,255,.4);box-shadow:0 0 25px rgba(0,255,255,.6);}
+.clock-label{font-size:11px;letter-spacing:2px;color:#00ffcc;margin-bottom:6px;}
+.clock-time{font-size:28px;letter-spacing:4px;color:#00ffff;text-shadow:0 0 12px cyan;animation:glitch 2.5s infinite;}
+
+.profile-video{width:100%;margin-top:24px;border-radius:16px;box-shadow:0 0 30px cyan;pointer-events:none;}
+
+.watermark{margin-top:18px;font-size:11px;letter-spacing:1.4px;color:rgba(200,200,200,.38);}
+.wm-icons{margin-top:12px;display:flex;justify-content:center;gap:14px;}
+.wm-box{width:40px;height:40px;border-radius:10px;display:flex;align-items:center;justify-content:center;background:rgba(0,0,0,.6);border:1px solid rgba(0,255,255,.45);box-shadow:0 0 14px rgba(0,255,255,.35);}
+.wm-box.chatgpt img{width:20px;filter:invert(1) drop-shadow(0 0 6px cyan);}
+.wm-box.redxz{font-size:20px;font-weight:900;font-family:Arial Black,sans-serif;color:#00ffff;text-shadow:0 0 6px cyan,2px 2px red,-2px -2px #00ff88;}
+
+@keyframes pulse{50%{box-shadow:0 0 40px cyan}}
+@keyframes glitch{50%{text-shadow:2px 0 red,-2px 0 cyan}}
+</style>
+</head>
+
+<body>
+
+<!-- RGB TOP LOADER -->
+<div id="top-loader"></div>
+
+<div id="popupNotif" class="popup-notif">Design by <strong>Redxz</strong></div>
+
+<div id="donateBtn" class="donate-wrapper" onclick="donate()">
+  <div class="donate-icon">💰</div>
+  <div class="donate-label">DONASI</div>
+</div>
+
+<div class="wrapper">
+  <img class="avatar" src="https://raw.githubusercontent.com/RedxzAjaa/assets/main/image.png">
+  <div class="title">REDXZ SOCIAL MEDIA</div>
+  <div class="subtitle">Tempat semua Sosmed Saya</div>
+  <div class="join-cta" onclick="openLink('discord')">JOIN SEKARANG</div>
+
+  <div class="social-container">
+    <button class="social-btn tiktok" onclick="openLink('tiktok')">
+      <img src="https://cdn-icons-png.flaticon.com/512/3046/3046121.png">TikTok
+    </button>
+    <button class="social-btn instagram" onclick="openLink('instagram')">
+      <img src="https://cdn-icons-png.flaticon.com/512/2111/2111463.png">Instagram
+    </button>
+    <button class="social-btn whatsapp" onclick="openLink('whatsapp')">
+      <img src="https://cdn-icons-png.flaticon.com/512/733/733585.png">WhatsApp
+    </button>
+    <button class="social-btn wa-channel" onclick="openLink('waChannel')">
+      <img src="https://cdn-icons-png.flaticon.com/512/733/733585.png">WA Channel
+    </button>
+    <button class="social-btn discord" onclick="openLink('discord')">
+      <img src="https://cdn-icons-png.flaticon.com/512/2111/2111370.png">Discord
+    </button>
+
+    <div class="clock-banner">
+      <div class="clock-label">CURRENT TIME</div>
+      <div id="clock" class="clock-time">00:00:00</div>
+    </div>
+
+    <video class="profile-video" autoplay muted loop playsinline>
+      <source src="https://res.cloudinary.com/dektkgk3k/video/upload/video_z8tmde.mp4">
+    </video>
+
+    <div class="watermark">
+      BY: REDXZ — COPYRIGHT © ALL RIGHT RESERVED
+      <div class="wm-icons">
+        <div class="wm-box chatgpt"><img src="https://upload.wikimedia.org/wikipedia/commons/0/04/ChatGPT_logo.svg"></div>
+        <div class="wm-box redxz">R</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+function openLink(t){
+  const l={
+    tiktok:"https://www.tiktok.com/@redxzaja",
+    instagram:"https://www.instagram.com/redxzajaa",
+    whatsapp:"https://wa.me/6285199236113",
+    waChannel:"https://whatsapp.com/channel/0029Vb6pFq6BvvsgM44eI825",
+    discord:"https://discord.gg/NkbhEuSF"
+  };
+  window.open(l[t],"_blank");
+}
+
+function donate(){
+  window.open("https://donate-redxz.edgeone.app","_blank");
+}
+
+/* CLOCK */
+function updateClock(){
+  const n=new Date();
+  document.getElementById("clock").textContent =
+    `${String(n.getHours()).padStart(2,'0')}:`+
+    `${String(n.getMinutes()).padStart(2,'0')}:`+
+    `${String(n.getSeconds()).padStart(2,'0')}`;
+}
+setInterval(updateClock,1000);
+updateClock();
+
+/* RGB LOADER CONTROL */
+const loader=document.getElementById("top-loader");
+let progress=0;
+const interval=setInterval(()=>{
+  if(progress<90){progress+=Math.random()*5;loader.style.width=progress+"%";}
+},150);
+document.onreadystatechange=()=>{
+  if(document.readyState==="interactive") loader.style.width="75%";
+  if(document.readyState==="complete"){
+    clearInterval(interval);
+    loader.style.width="100%";
+    setTimeout(()=>{loader.style.opacity="0";setTimeout(()=>loader.remove(),300);},600);
+  }
+};
+
+window.onload=()=>setTimeout(()=>popupNotif.classList.add("popup-hide"),3000);
+
+/* AUTO HIDE DONATE (FIXED) */
+let lastScroll=0;
+const donateBtn=document.getElementById("donateBtn");
+window.addEventListener("scroll",()=>{
+  const cur=window.pageYOffset;
+  if(cur>lastScroll && cur>80){
+    donateBtn.classList.add("hide");
+  }else{
+    donateBtn.classList.remove("hide");
+  }
+  lastScroll=cur;
+});
+
+</script>
+
+</body>
+</html>
